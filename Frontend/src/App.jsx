@@ -1,12 +1,15 @@
-import Header from "./components/header"
 
+import './App.css'
+import Navbar from './components/Navbar';
+import Home from './Mbody/Home';
 function App() {
- 
 
   return (
-    <>
-      <Header />
-    </>
+   <div>
+    <Navbar>
+    </Navbar>
+    <Home></Home>
+   </div>
   )
 }
 
