@@ -32,9 +32,9 @@ const Todo = () => {
         </div>
         <div className="todo-body">
             <div className="container-fluid">
-                <div className="row bg-primary">
+                <div className="row">
                         {Array && Array.map((item, index) =>(
-                            <div className="col-lg-3 bg-success mx-5 my-2">
+                            <div className="col-lg-3 mx-5 my-2">
                                 <TodoCards/>
                             </div>
                 ))}
