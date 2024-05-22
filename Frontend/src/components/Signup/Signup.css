@@ -11,12 +11,13 @@ height:100vh;
     opacity: 0.8;
 
 }
-.col-left{
-    border-left: 1px solid black;
-}
+
 .btn-up{
     background-color:  rgb(29, 196, 202);
     color: azure;
     outline: none;
     border: none;
+}
+.input-signup{
+    outline: none;
 }
