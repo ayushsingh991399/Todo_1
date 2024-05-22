@@ -22,3 +22,10 @@
     color: white !important;
     font-weight: bold;
 }
+.todo-card{
+border: 1px solid black;
+}
+.todo-card-para{
+    text-align: justify;
+    text-justify: inter-word;
+}
