@@ -1,7 +1,9 @@
 import "./Navbar.css";
 import { GiBookCover } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux"
 const Navbar = ()=> {
+  const isloggendIn = useSelector((state) => state.isloggendIn);
     return(
         <div>
            <nav class="navbar navbar-expand-lg ">
@@ -21,15 +23,21 @@ const Navbar = ()=> {
         <li className="nav-item mx-2">
          <Link className="nav-link active" aria-current="page" to="/todo">Todo</Link>
         </li>
-        <li className="nav-item mx-2">
+        {!isloggendIn && <>
+         <li className="nav-item mx-2">
          <Link className="nav-link active btn-nav" aria-current="page" to="signup">Signup</Link>
         </li>
         <li className="nav-item mx-2">
          <Link className="nav-link active btn-nav" aria-current="page" to="signin">signin</Link>
         </li>
-        <li className="nav-item mx-2">
+        </>}
+        {isloggendIn && <>
+         <li className="nav-item mx-2">
          <Link className="nav-link active btn-nav" aria-current="page" to="#">logout</Link>
-        </li>  
+        </li> 
+        </>}
+       
+        
       </ul>
         
       

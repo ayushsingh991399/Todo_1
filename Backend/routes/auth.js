@@ -8,10 +8,9 @@ router.post("/register",async (req,res)=>{
         const saltround = 10;
         const hashpassword = await bcrypt.hash(password, saltround);
          const user = new User({username,email,password:hashpassword});
-         await user.save().then(()=> res.status(200).json({user: user})
-    );
+         await user.save().then(()=> res.status(200).json({message: "Signup isSuccess"}));
     } catch(e){
-        res.status(400).json(e);
+        res.status(200).json({message: "email is already in use"});  
     }
 });
 
@@ -20,7 +19,7 @@ router.post("/login",async (req,res)=>{
     try {
     const user = await User.findOne({email: req.body.email});
     if(!user){
-        res.status(400).json({message:"email already exists"});
+        res.status(200).json({message:"email already exists"});
     }
 
     const ispasswordcorrect = await bcrypt.compare(
@@ -28,13 +27,13 @@ router.post("/login",async (req,res)=>{
          user.password
         );
         if(!ispasswordcorrect){
-            res.status(400).json({message:"password is Not correct"});
+            res.status(200).json({message:"password is Not correct"});
         }
         const {password, ...others} = user._doc;
         res.status(200).json({ user:others});
 
     } catch(e){
-        res.status(400).json({message:"user Already exists"});
+        res.status(200).json({message:"user Already exists"});
     }
 });
 
