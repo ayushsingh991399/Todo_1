@@ -17,13 +17,19 @@ const Signup = () => {
     const submit =async (e) => {
         e.preventDefault();
         await axios.post("http://localhost:9000/api/v1/register",Inputs).then((res)=>{
-            console.log(res); 
+            if(res.data.message === "email is already in use"){
+                alert(res.data.message); 
+               // toast.error("Please use another email");
+            }else {
+                alert(res.data.message);
+                toast.success("You Have Successfully Signed Up");
             setInputs({
             email : "",
              Username : "",
              password : "",
         });
-       
+              navigate("/signin");
+        };    
     });
         if(Inputs.email === "" || Inputs.Username === "" || Inputs.password === ""){
               toast.error("Please Fill All The Fields");
