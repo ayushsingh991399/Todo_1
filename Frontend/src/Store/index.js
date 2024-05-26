@@ -5,15 +5,15 @@ const authSlice = createSlice({
         user: "",isLoggendIn: false,
     },
     reducers: {
-        login(state) { state.isLoggendIn = true;
-            
+        login(state) { state.isLoggendIn = true;  
         },
-
-       
+          logout(state) { state.isLoggendIn = false;  
+        },
     },
 });
 export const authActions = createSlice.actions;
-export const Store = () => {
-  reducers = authSlice.reducers;
-}
+
+export const store = configureStore({
+  reducer: authSlice.reducer,
+})
 

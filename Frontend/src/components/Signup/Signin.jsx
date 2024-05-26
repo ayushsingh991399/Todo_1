@@ -2,7 +2,7 @@ import Headingsignup from "./Headingsignup";
 import "./Signup.css";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-domainom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../Store";
 const Signin = () => {

@@ -2,8 +2,16 @@ import "./Navbar.css";
 import { GiBookCover } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux"
+import { useDispatch } from "react-redux";
+import { authActions } from "../../Store";
 const Navbar = ()=> {
   const isloggendIn = useSelector((state) => state.isloggendIn);
+  const dispatch = useDispatch();
+  const logout = () => {
+    sessionStorage.clear("id")
+    dispatch(authActions.logout());
+
+  }
     return(
         <div>
            <nav class="navbar navbar-expand-lg ">
@@ -33,7 +41,8 @@ const Navbar = ()=> {
         </>}
         {isloggendIn && <>
          <li className="nav-item mx-2">
-         <Link className="nav-link active btn-nav" aria-current="page" to="#">logout</Link>
+         <Link className="nav-link active btn-nav" onclick = {logout} aria-current="page" to="#">logout</Link>
+          
         </li> 
         </>}
        
