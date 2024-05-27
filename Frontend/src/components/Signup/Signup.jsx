@@ -42,7 +42,7 @@ const Signup = () => {
         <ToastContainer />
         <div className="row">
           <div className="col-lg-8 coloum d-flex justify-content-center align-items-center">
-            <div className="d-flex flex-column w-100 p-5">
+            <div className="d-flex flex-column w-100 p-3">
               <input
                 type="email"
                 name="email"
@@ -72,7 +72,7 @@ const Signup = () => {
               </button>
             </div>
           </div>
-          <div className="col-lg-4 coloum col-left d-flex justify-content-center align-items-center">
+          <div className="col-lg-4 coloum col-left d-lg-flex justify-content-center align-items-center d-none ">
             <Headingsignup first="Sign" second="Up" />
           </div>
         </div>

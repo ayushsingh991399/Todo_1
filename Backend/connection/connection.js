@@ -7,9 +7,7 @@ const connection = async (req, res) => {
     });
 }
     catch (err) {
-        res.status(400).json({
-            message: " Not Connected ",
-        });
+       console.error(err);
      }
     
 };

@@ -30,11 +30,11 @@ const Signin = () => {
     <div className="signup">
     <div className="container">
         <div className="row"> 
-        <div className="col-lg-4 coloum col-left d-flex justify-content-center align-items-center">
+        <div className="col-lg-4 coloum col-left d-none d-lg-flex justify-content-center align-items-center">
                 <Headingsignup first="Sign" second="In"/>
             </div>
             <div className="col-lg-8 coloum d-flex justify-content-center align-items-center">
-                <div className="d-flex flex-column w-100 p-5">
+                <div className="d-flex flex-column w-100 p-3">
                     <input 
                     type="email"
                     name= "email"

@@ -1,6 +1,6 @@
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { GrDocumentUpdate } from "react-icons/gr";
-const TodoCards = ({title,Description,id , delid, display}) => {
+const TodoCards = ({title,Description,id , delid, display,updateId,toBeUpdate}) => {
   return (
     <div className="p-3 todo-card">
       <div>
@@ -12,8 +12,8 @@ const TodoCards = ({title,Description,id , delid, display}) => {
       <div className="d-flex justify-content-around ">
         <div className="d-flex justify-content-center align-items-center card-icon-head px-2 py-1"
         onClick={()=>{
-          id
           display("block");
+          toBeUpdate(updateId);
         }}>
         <GrDocumentUpdate className="card-icons col-icon-del"/> Update
         </div>
