@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Headingsignup from "./Headingsignup";
 import "./Signup.css";
@@ -7,35 +7,42 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Signup = () => {
   const navigate = useNavigate();
-  const [Inputs, setInputs] = useState({
+  const [user, setUser] = useState({
     email: "",
-    Username: "",
     password: "",
-  });
-  const change = (e) => {
-    const { name, value } = e.target;
-    setInputs({ ...Inputs, [name]: value });
-  };
-  const submit = async (e) => {
-    e.preventDefault();
-    await axios
-      .post("http://localhost:9000/api/v1/register", Inputs)
-      .then((res) =>{
-        if(res.data.message === "email is already in use"){
-          toast.error("email is already in use"); 
-          
-        }else{
-          toast.success("You Have Successfully Signed Up");
-         navigate("/signin");
-        };
-        console.log(res);
-        setInputs({
-          email:"",
-          Username:"",
-          password:"",
-        });
-      });
-  };
+    username: "",
+})
+const [buttonDisabled, setButtonDisabled] =useState(false);
+    const [loading, setLoading] = useState(false);
+    const onSignup = async (e) => {
+      e.preventDefault();
+        try {
+            setLoading(true);
+            const response = await axios.post(`${window.location.origin}/api/v1/register`, user)
+            toast.success("Signup successful");
+            setTimeout(() => {
+              navigate("/signin")
+            }, 2000);
+            setUser({email: "", password: "", username: ""});
+            
+            
+            
+        } catch (error) {
+            toast.error("Email is already in use");
+        }finally {
+            setLoading(false);
+        }
+    }
+
+    useEffect(() => {
+        if(user.email.length > 0 && user.password.length > 0 && user.username.length > 0) {
+            setButtonDisabled(false);
+        } else {
+            setButtonDisabled(true);
+        }
+    }, [user]);
+
+ 
   return (
     <div className="signup">
       <div className="container">
@@ -48,27 +55,27 @@ const Signup = () => {
                 name="email"
                 className="p-2 my-3 input-signup"
                 placeholder="enter your email address"
-                onChange={change}
-                value={Inputs.email}
+                value={user.email}
+                onChange={(e) => setUser({...user, email: e.target.value})}
               />
               <input
                 type="Username"
                 name="Username"
                 className="p-2 my-3 input-signup"
                 placeholder="enter your Username"
-                onChange={change}
-                value={Inputs.Username}
+                value={user.username}
+                onChange={(e) => setUser({...user, username: e.target.value})}
               />
               <input
                 type="password"
                 name="password"
                 className="p-2 my-3 input-signup"
                 placeholder="enter your password"
-                onChange={change}
-                value={Inputs.password}
+                value={user.password}
+            onChange={(e) => setUser({...user, password: e.target.value})}
               />
-              <button className="btn-up p-2" onClick={submit}>
-                SignUp
+              <button className="btn-up p-2" onClick={onSignup}>
+              {buttonDisabled ? "No signup" : "Signup"}
               </button>
             </div>
           </div>

@@ -12,8 +12,9 @@ app.get("/",(req,res)=>{
     res.send("Welcome to Todo!");
 });
 
+const port = process.env.PORT || 3000;
 app.use("/api/v1", auth);
 app.use("/api/v2", list);
-app.listen(9000,()=>{
-    console.log("Server is running on port 9000");
+app.listen(port,()=>{
+    console.log("Server is running on port " + port);
 });

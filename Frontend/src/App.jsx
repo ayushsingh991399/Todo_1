@@ -8,19 +8,33 @@ import { BrowserRouter as Router,Route,Routes} from "react-router-dom";
 import Signup from './components/Signup/Signup';
 import Signin from './components/Signup/Signin';
 import Todo from './components/Todo/Todo';
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import { useDispatch } from "react-redux";
 import { authActions } from "./Store";
+import Loader from './components/loader/Loader';
 function App() {
+
   const dispatch = useDispatch();
   useEffect(()=>{
     const id = sessionStorage.getItem("id")
     if(id){
       dispatch(authActions.login());
     }
-  },[]);
+  },[dispatch]);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const fakeDataFetch = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+    };
 
-  return (
+    fakeDataFetch();
+  }, []);
+
+  return isLoading ? (
+    <Loader />
+  ) : (
    <div>
     <Router>
        <Navbar/>
