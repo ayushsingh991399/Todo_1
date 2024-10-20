@@ -23,7 +23,7 @@ const Update = ({ display, update }) => {
   const submit = async () => {
     if(update._id){
        await axios
-      .put(`${window.location.origin}/api/v2/updatetask/${update._id}`, Inputs)
+      .put(`https://todo-app-atuq.onrender.com/api/v2/updatetask/${update._id}`, Inputs)
       .then(() => {
         display("none");
         toast("Task updated successfully");

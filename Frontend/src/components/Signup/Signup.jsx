@@ -18,7 +18,7 @@ const [buttonDisabled, setButtonDisabled] =useState(false);
       e.preventDefault();
         try {
             setLoading(true);
-            const response = await axios.post(`${window.location.origin}/api/v1/register`, user)
+            const response = await axios.post(`https://todo-app-atuq.onrender.com/api/v1/register`, user)
             toast.success("Signup successful");
             setTimeout(() => {
               navigate("/signin")

@@ -27,7 +27,7 @@ const Todo = () => {
         } else {
             if (id) {
                 try {
-                    const response = await axios.post(`${window.location.origin}/api/v2/addtask`, {
+                    const response = await axios.post(`https://todo-app-atuq.onrender.com/api/v2/addtask`, {
                         title: Inputs.title,
                         description: Inputs.description,
                         id: id
@@ -48,7 +48,7 @@ const Todo = () => {
     };
     const del =async(cardid) => { 
         if(id){ 
-            await axios.delete(`${window.location.origin}/api/v2/deletetask/${cardid}`,{data: {id: id}},).then(() => {toast.success("your task is deleted");})
+            await axios.delete(`https://todo-app-atuq.onrender.com/api/v2/deletetask/${cardid}`,{data: {id: id}},).then(() => {toast.success("your task is deleted");})
              
         } else {
             Array.splice(cardid,"1")
@@ -65,7 +65,7 @@ const Todo = () => {
     }
     const fetchTasks = async () => {
         try {
-            const response = await axios.get(`${window.location.origin}/api/v2/gettask/${id}`);
+            const response = await axios.get(`https://todo-app-atuq.onrender.com/api/v2/gettask/${id}`);
             setArray(response.data.list);
         } catch (error) {
             toast.error("Failed to fetch tasks");
