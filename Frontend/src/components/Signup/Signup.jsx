@@ -22,7 +22,7 @@ const [buttonDisabled, setButtonDisabled] =useState(false);
             toast.success("Signup successful");
             setTimeout(() => {
               navigate("/signin")
-            }, 2000);
+            }, 1000);
             setUser({email: "", password: "", username: ""});
             
             

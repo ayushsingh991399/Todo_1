@@ -28,9 +28,6 @@ const [buttonDisabled, setButtonDisabled] =useState(false);
         
         })
         toast.success("You have successfully signed in!");
-        setTimeout(() => {
-          navigate("/Todo")
-        }, 100);
         setUser({email: "", password: ""});
       } catch (error) {
         console.error("Signup failed", error.message);
