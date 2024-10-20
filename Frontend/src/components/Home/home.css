@@ -1,12 +1,10 @@
-.home{
+.home {
+    height: 100vh;
     width: 100%;
-    height:100vh ;
-}
-
-.home h1{
-    font-size: 60px;
-}
-.home-btn{
+  }
+  
+  
+  .home-btn{
     border:none;
     outline: none;
     background-color:linear-gradient(to left, #1fa2ff, #12d8fa, #a6ffcb);
@@ -14,3 +12,36 @@
     color: white !important;
     font-weight: bold;
 }
+  
+  @media (max-width: 768px) {
+    .home {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    .container {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  
+    .home-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.2rem;
+    }
+  
+    .home-btn {
+      font-size: 1rem;
+    }
+  }
+  

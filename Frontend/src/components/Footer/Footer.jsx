@@ -1,7 +1,7 @@
 import "./Footer.css"
 const Footer = () => {
   return (
-    <div className="container-fluid p-3 d-flex justify-content-center align-items-center text-white Footer">
+    <div className="container-fluid p-3 d-flex justify-content-center align-items-center text-white Footer Footer-sm">
         
         <h1>Todo</h1>&nbsp;<p className="m-0">&copy;Made by a Coder : <b>Ayush Singh</b></p>
 
