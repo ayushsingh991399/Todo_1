@@ -48,9 +48,7 @@ git clone https://github.com/yourusername/fullstack-todo-app.git
 cd fullstack-todo-app
 
 2. Backend Setup
-bash
-Copy
-Edit
+
 cd Backend
 npm install
 Create a .env file in the server directory:
@@ -59,13 +57,9 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 Start the backend server:
 
-bash
-Copy
-Edit
+
 npm run dev
 3. Frontend Setup
-bash
-Copy
-Edit
+
 cd Frontend
 npm install
